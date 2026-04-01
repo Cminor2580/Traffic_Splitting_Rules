@@ -1,1 +1,43 @@
+name: Sync Rules
 
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Rules/ChinaMobile_IPTV.yaml"
+      - "Rules/CustomizedDirect.yaml"
+      - "Rules/CustomizedProxy.yaml"
+      - "Rules/CustomizedReject.yaml"
+
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "触发原因（可选）"
+        required: false
+        default: "手动同步"
+
+jobs:
+  sync:
+    name: Sync
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # 拉取完整 commit 历史，确保 git diff HEAD~1 可以正常工作
+          fetch-depth: 2
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run
+        env:
+          SYNC_HOST:      ${{ secrets.SYNC_HOST }}
+          SYNC_TOKEN:     ${{ secrets.SYNC_TOKEN }}
+          # push 触发时增量同步；定时或手动触发时全量同步
+          SYNC_FORCE_ALL: ${{ github.event_name != 'push' && 'true' || 'false' }}
+        run: python Sync/sync.py
