@@ -1,1 +1,26 @@
+#自定义直连规则集
+payload:
+# 域名后缀匹配
+ - DOMAIN-SUFFIX,time.windows.com
+ # 蓝奏云
+ - DOMAIN-SUFFIX,lanzov.com
+ # Hao123网址导航
+ - DOMAIN-SUFFIX,hao123.com
+ # GitHub镜像
+ - DOMAIN-SUFFIX,bgithub.xyz
+ # Emby公益服
+ - DOMAIN-SUFFIX,hohai.eu.org
+ # catvod直播源
+ - DOMAIN-SUFFIX,catvod.com
 
+# 源IP数据包匹配
+# 本地NAS
+ - SRC-IP-CIDR,200.56.72.247/32
+# 我的TV
+ - SRC-IP-CIDR,200.56.72.230/32
+
+# 目的地IP数据包匹配
+# 局域网网关
+ - IP-CIDR,192.168.36.1/32
+ - IP-CIDR,192.168.0.72/32
+ - IP-CIDR,172.27.16.18/32
