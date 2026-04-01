@@ -16,9 +16,10 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # ── 全部规则文件（相对仓库根的路径 → 绝对路径） ────────────────────
 ALL_RULES = {
-    "Rules/Android/Android_DNS_Rules.txt":   os.path.join(REPO_ROOT, "Rules", "Android",   "Android_DNS_Rules.txt"),
-    "Rules/iOS/iOS_DNS_Rules.txt":           os.path.join(REPO_ROOT, "Rules", "iOS",        "iOS_DNS_Rules.txt"),
-    "Rules/Universal/Universal_DNS_Rules.txt": os.path.join(REPO_ROOT, "Rules", "Universal", "Universal_DNS_Rules.txt"),
+    "Rules/ChinaMobile_IPTV.yaml":             os.path.join(REPO_ROOT, "Rules",         "ChinaMobile_IPTV.yaml"),
+    "Rules/CustomizedDirect.yaml":             os.path.join(REPO_ROOT, "Rules",         "CustomizedDirect.yaml"),
+    "Rules/CustomizedProxy.yaml":              os.path.join(REPO_ROOT, "Rules",         "CustomizedProxy.yaml"),
+    "Rules/CustomizedReject.yaml":             os.path.join(REPO_ROOT, "Rules",         "CustomizedReject.yaml"),
 }
 
 
